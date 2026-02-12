@@ -5,6 +5,7 @@ config/.env
 *.env
 *.env.local
 *.env.*.local
+config/app_local.php
 
 # Composer Dependencies #
 #########################
