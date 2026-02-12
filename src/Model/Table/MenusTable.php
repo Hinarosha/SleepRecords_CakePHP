@@ -26,6 +26,11 @@ class MenusTable extends Table
             ->notEmptyString('ordre');
 
         $validator
+            ->integer('required_permission')
+            ->range('required_permission', [0, 2], 'Required permission must be between 0 and 2')
+            ->notEmptyString('required_permission');
+
+        $validator
             ->scalar('intitule')
             ->maxLength('intitule', 100)
             ->notEmptyString('intitule');

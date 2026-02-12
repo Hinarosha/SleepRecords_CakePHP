@@ -171,6 +171,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                         'lien NOT IN' => ['/login', '/register'],
                         'lien IS NULL'
                     ]
+                ])->andWhere([
+                    // Filtrer par niveau de permission requis
+                    'required_permission <=' => $identity->permission
                 ]);
             } else {
                 // Menu pour visiteurs

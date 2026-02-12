@@ -12,6 +12,7 @@ class Menu extends Entity
      */
     protected array $_accessible = [
         'ordre' => true,
+        'required_permission' => true,
         'intitule' => true,
         'lien' => true,
         'created' => true,

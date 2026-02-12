@@ -41,12 +41,12 @@ class ComposerStaticInita070f9fb8758c54ded06acaf351224f6
     );
 
     public static $prefixLengthsPsr4 = array (
-        'T' => 
+        'T' =>
         array (
             'Twig\\Extra\\Markdown\\' => 20,
             'Twig\\' => 5,
         ),
-        'S' => 
+        'S' =>
         array (
             'Symfony\\Polyfill\\Php81\\' => 23,
             'Symfony\\Polyfill\\Php80\\' => 23,
@@ -67,11 +67,11 @@ class ComposerStaticInita070f9fb8758c54ded06acaf351224f6
             'Seld\\PharUtils\\' => 15,
             'Seld\\JsonLint\\' => 14,
         ),
-        'R' => 
+        'R' =>
         array (
             'React\\Promise\\' => 14,
         ),
-        'P' => 
+        'P' =>
         array (
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
@@ -87,27 +87,27 @@ class ComposerStaticInita070f9fb8758c54ded06acaf351224f6
             'PHPStan\\PhpDocParser\\' => 21,
             'PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => 57,
         ),
-        'M' => 
+        'M' =>
         array (
             'Migrations\\' => 11,
             'M1\\Env\\' => 7,
         ),
-        'L' => 
+        'L' =>
         array (
             'League\\Container\\' => 17,
             'Laminas\\HttpHandlerRunner\\' => 26,
             'Laminas\\Diactoros\\' => 18,
         ),
-        'J' => 
+        'J' =>
         array (
             'JsonSchema\\' => 11,
             'Jasny\\Twig\\' => 11,
         ),
-        'G' => 
+        'G' =>
         array (
             'GrahamCampbell\\ResultType\\' => 26,
         ),
-        'D' => 
+        'D' =>
         array (
             'Dotenv\\' => 7,
             'Doctrine\\SqlFormatter\\' => 22,
@@ -115,7 +115,7 @@ class ComposerStaticInita070f9fb8758c54ded06acaf351224f6
             'DeepCopy\\' => 9,
             'DebugKit\\' => 9,
         ),
-        'C' => 
+        'C' =>
         array (
             'Composer\\XdebugHandler\\' => 23,
             'Composer\\Spdx\\' => 14,
@@ -132,12 +132,12 @@ class ComposerStaticInita070f9fb8758c54ded06acaf351224f6
             'Cake\\' => 5,
             'CakePHP\\' => 8,
         ),
-        'B' => 
+        'B' =>
         array (
             'Brick\\VarExporter\\' => 18,
             'Bake\\' => 5,
         ),
-        'A' => 
+        'A' =>
         array (
             'Authentication\\' => 15,
             'App\\Test\\' => 9,
@@ -146,278 +146,278 @@ class ComposerStaticInita070f9fb8758c54ded06acaf351224f6
     );
 
     public static $prefixDirsPsr4 = array (
-        'Twig\\Extra\\Markdown\\' => 
+        'Twig\\Extra\\Markdown\\' =>
         array (
             0 => __DIR__ . '/..' . '/twig/markdown-extra',
         ),
-        'Twig\\' => 
+        'Twig\\' =>
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
         ),
-        'Symfony\\Polyfill\\Php81\\' => 
+        'Symfony\\Polyfill\\Php81\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php81',
         ),
-        'Symfony\\Polyfill\\Php80\\' => 
+        'Symfony\\Polyfill\\Php80\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
         ),
-        'Symfony\\Polyfill\\Php73\\' => 
+        'Symfony\\Polyfill\\Php73\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php73',
         ),
-        'Symfony\\Polyfill\\Mbstring\\' => 
+        'Symfony\\Polyfill\\Mbstring\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
-        'Symfony\\Polyfill\\Intl\\Normalizer\\' => 
+        'Symfony\\Polyfill\\Intl\\Normalizer\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer',
         ),
-        'Symfony\\Polyfill\\Intl\\Grapheme\\' => 
+        'Symfony\\Polyfill\\Intl\\Grapheme\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme',
         ),
-        'Symfony\\Polyfill\\Ctype\\' => 
+        'Symfony\\Polyfill\\Ctype\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
-        'Symfony\\Contracts\\Service\\' => 
+        'Symfony\\Contracts\\Service\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/service-contracts',
         ),
-        'Symfony\\Component\\String\\' => 
+        'Symfony\\Component\\String\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/string',
         ),
-        'Symfony\\Component\\Process\\' => 
+        'Symfony\\Component\\Process\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/process',
         ),
-        'Symfony\\Component\\Finder\\' => 
+        'Symfony\\Component\\Finder\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/finder',
         ),
-        'Symfony\\Component\\Filesystem\\' => 
+        'Symfony\\Component\\Filesystem\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/filesystem',
         ),
-        'Symfony\\Component\\Console\\' => 
+        'Symfony\\Component\\Console\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
-        'Symfony\\Component\\Config\\' => 
+        'Symfony\\Component\\Config\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/config',
         ),
-        'SlevomatCodingStandard\\' => 
+        'SlevomatCodingStandard\\' =>
         array (
             0 => __DIR__ . '/..' . '/slevomat/coding-standard/SlevomatCodingStandard',
         ),
-        'Seld\\Signal\\' => 
+        'Seld\\Signal\\' =>
         array (
             0 => __DIR__ . '/..' . '/seld/signal-handler/src',
         ),
-        'Seld\\PharUtils\\' => 
+        'Seld\\PharUtils\\' =>
         array (
             0 => __DIR__ . '/..' . '/seld/phar-utils/src',
         ),
-        'Seld\\JsonLint\\' => 
+        'Seld\\JsonLint\\' =>
         array (
             0 => __DIR__ . '/..' . '/seld/jsonlint/src/Seld/JsonLint',
         ),
-        'React\\Promise\\' => 
+        'React\\Promise\\' =>
         array (
             0 => __DIR__ . '/..' . '/react/promise/src',
         ),
-        'Psr\\SimpleCache\\' => 
+        'Psr\\SimpleCache\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/simple-cache/src',
         ),
-        'Psr\\Log\\' => 
+        'Psr\\Log\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/log/src',
         ),
-        'Psr\\Http\\Server\\' => 
+        'Psr\\Http\\Server\\' =>
         array (
-            0 => __DIR__ . '/..' . '/psr/http-server-handler/src',
-            1 => __DIR__ . '/..' . '/psr/http-server-middleware/src',
+            0 => __DIR__ . '/..' . '/psr/http-server-middleware/src',
+            1 => __DIR__ . '/..' . '/psr/http-server-handler/src',
         ),
-        'Psr\\Http\\Message\\' => 
+        'Psr\\Http\\Message\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/http-factory/src',
             1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
-        'Psr\\Http\\Client\\' => 
+        'Psr\\Http\\Client\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/http-client/src',
         ),
-        'Psr\\Container\\' => 
+        'Psr\\Container\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
-        'Psr\\Clock\\' => 
+        'Psr\\Clock\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/clock/src',
         ),
-        'Psr\\Cache\\' => 
+        'Psr\\Cache\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
-        'PhpParser\\' => 
+        'PhpParser\\' =>
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
-        'PhpOption\\' => 
+        'PhpOption\\' =>
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
         ),
-        'Phinx\\' => 
+        'Phinx\\' =>
         array (
             0 => __DIR__ . '/..' . '/robmorgan/phinx/src/Phinx',
         ),
-        'PHPStan\\PhpDocParser\\' => 
+        'PHPStan\\PhpDocParser\\' =>
         array (
             0 => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src',
         ),
-        'PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => 
+        'PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' =>
         array (
             0 => __DIR__ . '/..' . '/dealerdirect/phpcodesniffer-composer-installer/src',
         ),
-        'Migrations\\' => 
+        'Migrations\\' =>
         array (
             0 => __DIR__ . '/..' . '/cakephp/migrations/src',
         ),
-        'M1\\Env\\' => 
+        'M1\\Env\\' =>
         array (
             0 => __DIR__ . '/..' . '/m1/env/src',
         ),
-        'League\\Container\\' => 
+        'League\\Container\\' =>
         array (
             0 => __DIR__ . '/..' . '/league/container/src',
         ),
-        'Laminas\\HttpHandlerRunner\\' => 
+        'Laminas\\HttpHandlerRunner\\' =>
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-httphandlerrunner/src',
         ),
-        'Laminas\\Diactoros\\' => 
+        'Laminas\\Diactoros\\' =>
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-diactoros/src',
         ),
-        'JsonSchema\\' => 
+        'JsonSchema\\' =>
         array (
             0 => __DIR__ . '/..' . '/justinrainbow/json-schema/src/JsonSchema',
         ),
-        'Jasny\\Twig\\' => 
+        'Jasny\\Twig\\' =>
         array (
             0 => __DIR__ . '/..' . '/jasny/twig-extensions/src',
         ),
-        'GrahamCampbell\\ResultType\\' => 
+        'GrahamCampbell\\ResultType\\' =>
         array (
             0 => __DIR__ . '/..' . '/graham-campbell/result-type/src',
         ),
-        'Dotenv\\' => 
+        'Dotenv\\' =>
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
         ),
-        'Doctrine\\SqlFormatter\\' => 
+        'Doctrine\\SqlFormatter\\' =>
         array (
             0 => __DIR__ . '/..' . '/doctrine/sql-formatter/src',
         ),
-        'Detection\\' => 
+        'Detection\\' =>
         array (
             0 => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/src',
         ),
-        'DeepCopy\\' => 
+        'DeepCopy\\' =>
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
-        'DebugKit\\' => 
+        'DebugKit\\' =>
         array (
             0 => __DIR__ . '/..' . '/cakephp/debug_kit/src',
         ),
-        'Composer\\XdebugHandler\\' => 
+        'Composer\\XdebugHandler\\' =>
         array (
             0 => __DIR__ . '/..' . '/composer/xdebug-handler/src',
         ),
-        'Composer\\Spdx\\' => 
+        'Composer\\Spdx\\' =>
         array (
             0 => __DIR__ . '/..' . '/composer/spdx-licenses/src',
         ),
-        'Composer\\Semver\\' => 
+        'Composer\\Semver\\' =>
         array (
             0 => __DIR__ . '/..' . '/composer/semver/src',
         ),
-        'Composer\\Pcre\\' => 
+        'Composer\\Pcre\\' =>
         array (
             0 => __DIR__ . '/..' . '/composer/pcre/src',
         ),
-        'Composer\\MetadataMinifier\\' => 
+        'Composer\\MetadataMinifier\\' =>
         array (
             0 => __DIR__ . '/..' . '/composer/metadata-minifier/src',
         ),
-        'Composer\\ClassMapGenerator\\' => 
+        'Composer\\ClassMapGenerator\\' =>
         array (
             0 => __DIR__ . '/..' . '/composer/class-map-generator/src',
         ),
-        'Composer\\CaBundle\\' => 
+        'Composer\\CaBundle\\' =>
         array (
             0 => __DIR__ . '/..' . '/composer/ca-bundle/src',
         ),
-        'Composer\\' => 
+        'Composer\\' =>
         array (
             0 => __DIR__ . '/..' . '/composer/composer/src/Composer',
         ),
-        'Cake\\TwigView\\' => 
+        'Cake\\TwigView\\' =>
         array (
             0 => __DIR__ . '/..' . '/cakephp/twig-view/src',
         ),
-        'Cake\\Test\\' => 
+        'Cake\\Test\\' =>
         array (
             0 => __DIR__ . '/..' . '/cakephp/cakephp/tests',
         ),
-        'Cake\\Composer\\' => 
+        'Cake\\Composer\\' =>
         array (
             0 => __DIR__ . '/..' . '/cakephp/plugin-installer/src',
         ),
-        'Cake\\Chronos\\' => 
+        'Cake\\Chronos\\' =>
         array (
             0 => __DIR__ . '/..' . '/cakephp/chronos/src',
         ),
-        'Cake\\' => 
+        'Cake\\' =>
         array (
             0 => __DIR__ . '/..' . '/cakephp/cakephp/src',
         ),
-        'CakePHP\\' => 
+        'CakePHP\\' =>
         array (
             0 => __DIR__ . '/..' . '/cakephp/cakephp-codesniffer/CakePHP',
         ),
-        'Brick\\VarExporter\\' => 
+        'Brick\\VarExporter\\' =>
         array (
             0 => __DIR__ . '/..' . '/brick/varexporter/src',
         ),
-        'Bake\\' => 
+        'Bake\\' =>
         array (
             0 => __DIR__ . '/..' . '/cakephp/bake/src',
         ),
-        'Authentication\\' => 
+        'Authentication\\' =>
         array (
             0 => __DIR__ . '/..' . '/cakephp/authentication/src',
         ),
-        'App\\Test\\' => 
+        'App\\Test\\' =>
         array (
             0 => __DIR__ . '/../..' . '/tests',
         ),
-        'App\\' => 
+        'App\\' =>
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
     );
 
     public static $prefixesPsr0 = array (
-        'j' => 
+        'j' =>
         array (
-            'josegonzalez\\Dotenv' => 
+            'josegonzalez\\Dotenv' =>
             array (
                 0 => __DIR__ . '/..' . '/josegonzalez/dotenv/src',
                 1 => __DIR__ . '/..' . '/josegonzalez/dotenv/tests',

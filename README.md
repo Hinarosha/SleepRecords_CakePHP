@@ -1,14 +1,18 @@
-# Sleep Tracking Application
+# Sleep Tracking Application (SleepRecords)
 
 ## Overview
-This web application helps users track and manage their sleep patterns. Users can record their sleep times, wake times, and monitor their sleep quality over time. The application provides insights into sleep habits and helps maintain a healthy sleep schedule.
+This web application helps users track and manage their sleep patterns. Users can record their sleep times, wake times, energy levels, naps, and monitor their sleep quality over time. The application provides insights into sleep habits, calculates sleep cycles, and helps maintain a healthy sleep schedule.
 
 ## Features
-- User registration and authentication
-- Record sleep and wake times
-- Track sleep duration
-- View sleep history
-- Basic sleep statistics
+- User registration and authentication with permission-based access control
+- Record sleep and wake times with energy level tracking
+- Track sleep cycles (1.5-hour cycles) and sleep duration
+- Record afternoon and evening naps
+- Track sport/exercise activities
+- View sleep history and statistics
+- Weekly and global sleep statistics
+- Admin panel for user and menu management
+- Dynamic menu system with permission-based visibility
 
 ## Installation & Setup
 
@@ -33,21 +37,29 @@ composer install
 
 3. Configure your database
 - Copy `config/.env.example` to `config/.env`
-  (If .env.example doesn't exist, create a new file named `.env` in the config directory)
 - Update the database configuration in `config/.env`:
-```bash
-export DATABASE_HOST="localhost"
-export DATABASE_USER="your_username"
-export DATABASE_PASS="your_password"
-export DATABASE_NAME="sleep_tracker"
+```env
+DATABASE_URL="mysql://username:password@localhost:3306/sleep_records"
+# OR use individual variables:
+DB_USERNAME="your_username"
+DB_PASSWORD="your_password"
+DB_DATABASE="sleep_records"
 ```
 
 4. Set up the database
-- Create a new MySQL database named 'sleep_tracker'
-- Import the database structure from `config/schema/sleep_tracker.sql`
-  (This file contains the initial database structure with the following tables:
-  - users (id, email, password, firstname, lastname, created)
-  - sleep_records (id, user_id, sleep_time, wake_time, quality, notes, created))
+- Create a new MySQL database:
+```sql
+CREATE DATABASE sleep_records CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+- Run CakePHP migrations to create all tables and seed initial data:
+```bash
+bin/cake migrations migrate
+```
+This will create:
+  - `users` table (with permission levels)
+  - `sleep_records` table (with all sleep tracking fields)
+  - `menus` table (with permission-based visibility)
+  - Seed initial menu items
 
 5. Start the development server
 ```bash 
@@ -79,38 +91,89 @@ The application should now be running at http://localhost:8765
   - view.php: Detailed view of a single record
 
 ### Database Schema
-The application uses two main tables:
-1. users
-   - id: Primary key
-   - email: User's email address
-   - password: Hashed password
-   - firstname: User's first name
-   - lastname: User's last name
-   - created: Account creation timestamp
+The application uses three main tables:
 
-2. sleep_records
-   - id: Primary key
-   - user_id: Foreign key to users table
-   - sleep_time: When the user went to sleep
-   - wake_time: When the user woke up
-   - quality: Sleep quality rating
-   - notes: Additional comments
-   - created: Record creation timestamp
+1. **users**
+   - `id`: Primary key
+   - `username`: Unique username
+   - `email`: Unique email address
+   - `password`: Hashed password (bcrypt)
+   - `firstname`: User's first name
+   - `lastname`: User's last name
+   - `permission`: Permission level (0 = normal user, 1 = reserved, 2 = admin)
+   - `created`: Account creation timestamp
+   - `modified`: Last modification timestamp
+
+2. **sleep_records**
+   - `id`: Primary key
+   - `user_id`: Foreign key to users table (CASCADE delete)
+   - `date`: Date of the sleep record
+   - `bedtime`: Time when user went to bed
+   - `waketime`: Time when user woke up
+   - `afternoon_nap`: Boolean flag for afternoon nap
+   - `evening_nap`: Boolean flag for evening nap
+   - `energy_level`: Energy level (0-10 scale)
+   - `sport`: Boolean flag for exercise/sport activity
+   - `comments`: Additional notes (text)
+   - `created`: Record creation timestamp
+   - `modified`: Last modification timestamp
+
+3. **menus**
+   - `id`: Primary key
+   - `ordre`: Display order (integer)
+   - `intitule`: Menu item title
+   - `lien`: URL link/path
+   - `required_permission`: Minimum permission level needed to see this menu (0-2)
+   - `created`: Record creation timestamp
+   - `modified`: Last modification timestamp
+
+### Permission System
+The application uses a simple permission-based access control:
+- **Level 0**: Normal users (default for new registrations)
+  - Can manage their own sleep records
+  - Can access their personal admin page
+- **Level 1**: Reserved for future use (currently same as level 0)
+- **Level 2**: Administrators
+  - Can manage all users (view list, change permissions)
+  - Can manage menu items
+  - Can access all admin features
+
+Menu visibility is controlled by the `required_permission` field in the `menus` table. Only users with permission level >= `required_permission` will see that menu item.
 
 ## Usage Guide
 
+### First-Time Setup
+After running migrations, you'll need to create an admin user. You can either:
+1. Register a new user through `/register` (will be permission level 0)
+2. Manually update a user's permission to 2 in the database:
+```sql
+UPDATE users SET permission = 2 WHERE email = 'admin@example.com';
+```
+
 ### Recording Sleep
 1. Log in to your account
-2. Click "Add Sleep Record" button
-3. Enter your sleep time and wake time
-4. Optionally add quality rating and notes
+2. Navigate to "Mes enregistrements" (My Records)
+3. Click "Add Sleep Record" button
+4. Enter:
+   - Date of sleep
+   - Bedtime and wake time
+   - Energy level (0-10)
+   - Optional: afternoon nap, evening nap, sport activity, comments
 5. Submit the form
 
 ### Viewing Statistics
-1. Navigate to the dashboard
-2. View your sleep patterns in the graphs
-3. Check weekly and monthly averages
-4. Export data if needed
+1. Navigate to "Mes enregistrements"
+2. View your sleep records in chronological order
+3. Statistics include:
+   - Sleep cycles (calculated automatically: 1 cycle = 1.5 hours)
+   - Sleep hours
+   - Weekly statistics (total cycles, consecutive days, average energy)
+   - Global statistics (average cycles, best streak, sport percentage)
+
+### Admin Features (Permission Level 2)
+- **User Management** (`/users`): View all users, change their permission levels
+- **Menu Management** (`/menus`): Add, edit, delete, and reorder menu items
+  - Set `required_permission` for each menu item to control visibility
 
 ## Common Issues & Troubleshooting
 
@@ -186,11 +249,98 @@ vendor/bin/phpunit
 4. Push to the branch (git push origin feature/AmazingFeature)
 5. Open a Pull Request
 
+## Production Deployment
+
+### Prerequisites
+- PHP 8.1+ with required extensions
+- MySQL/MariaDB 5.7+
+- Composer
+- Web server (Apache/Nginx)
+
+### Deployment Steps
+
+1. **Clone and install dependencies:**
+```bash
+git clone [your-repository-url]
+cd [project-directory]
+composer install --no-dev --optimize-autoloader
+```
+
+2. **Configure environment:**
+```bash
+cp config/.env.example config/.env
+# Edit config/.env with production database credentials
+# Set DEBUG=false or equivalent in your environment
+```
+
+3. **Set up database:**
+```bash
+# Create database
+mysql -u root -p
+CREATE DATABASE sleep_records CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+# Run migrations
+bin/cake migrations migrate
+```
+
+4. **Configure web server:**
+
+**Nginx example:**
+```nginx
+server {
+    server_name yourdomain.com;
+    root /var/www/sleeprecords/webroot;
+    index index.php;
+
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~ \.php$ {
+        include fastcgi_params;
+        fastcgi_pass unix:/run/php/php-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+}
+```
+
+**Apache example:**
+```apache
+<VirtualHost *:80>
+    ServerName yourdomain.com
+    DocumentRoot /var/www/sleeprecords/webroot
+
+    <Directory /var/www/sleeprecords/webroot>
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+```
+
+5. **Set file permissions:**
+```bash
+chown -R www-data:www-data tmp logs
+chmod -R 775 tmp logs
+```
+
+6. **Clear and warm caches:**
+```bash
+bin/cake cache clear_all
+bin/cake schema_cache build
+```
+
+7. **Set up HTTPS** (recommended):
+- Use Let's Encrypt/Certbot
+- Configure SSL certificates
+- Redirect HTTP to HTTPS
+
 ## Security
-- All passwords are hashed using bcrypt
-- SQL injection prevention through ORM
-- XSS protection via form helper
-- CSRF protection enabled
+- All passwords are hashed using CakePHP's DefaultPasswordHasher (bcrypt)
+- SQL injection prevention through CakePHP ORM
+- XSS protection via CakePHP form helper and output escaping
+- CSRF protection enabled by default
+- Permission-based access control for admin features
+- Authentication middleware protects all routes except public pages
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
@@ -202,7 +352,26 @@ For support, please:
 3. Create a new issue if needed
 4. Contact the maintainers
 
+## Database Migrations
+
+The application uses CakePHP migrations for database schema management. All migrations are located in `config/Migrations/`:
+
+- `20260212100000_CreateUsers.php` - Creates users table
+- `20260212101000_CreateSleepRecords.php` - Creates sleep_records table with foreign key
+- `20260212102000_CreateMenus.php` - Creates menus table with permission system
+- `20260212103000_SeedMenus.php` - Seeds initial menu items
+
+To run migrations:
+```bash
+bin/cake migrations migrate
+```
+
+To rollback:
+```bash
+bin/cake migrations rollback
+```
+
 ## Acknowledgments
-- Built with CakePHP framework
-- Uses Bootstrap for frontend
-- Charts powered by Chart.js
+- Built with CakePHP 5.x framework
+- Uses CakePHP Authentication plugin
+- Menu system with permission-based visibility

@@ -8,17 +8,13 @@ class MenusController extends AppController
     public function beforeFilter(\Cake\Event\EventInterface $event)
     {
         parent::beforeFilter($event);
-        
-        // Get current user
-        $currentUser = $this->Authentication->getIdentity();
-        
-        // Debug line to check user permissions
-        debug($currentUser);
-        
-        // Check permissions for all menu-related actions
-        if (!$currentUser || $currentUser->permission < 2) {
-            $this->Flash->error('Access denied. Administrator permission required.');
-            return $this->redirect(['controller' => 'Users', 'action' => 'admin']);
+
+        // Require administrator permission (level 2) for all menu-related actions
+        // This uses the shared helper from AppController and avoids printing
+        // debug output that would break headers.
+        $result = $this->requirePermission(2);
+        if ($result !== true) {
+            return $result;
         }
     }
 
