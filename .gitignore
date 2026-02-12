@@ -1,8 +1,63 @@
-# Security #
-############
+# Security & Environment #
+###########################
 .env
+config/.env
+*.env
+*.env.local
+*.env.*.local
 
-# Cake specific #
+# Composer Dependencies #
+#########################
+/vendor/
+
+# CakePHP Specific #
+####################
+/tmp/*
+!/tmp/.gitkeep
+/logs/*
+!/logs/.gitkeep
+/config/schema-dump-default.lock
+
+# Node Dependencies (if using npm/yarn) #
+##########################################
+/node_modules/
+/yarn.lock
+/package-lock.json
+
+# IDE & Editor Files #
+######################
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# OS Files #
+#############
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Build & Cache #
+##################
+/build/
+/.phpunit.result.cache
+/.php-cs-fixer.cache
+
+# Backup Files #
 ################
-tmp/*
-logs/*
+*.bak
+*.backup
+*.old
+*.orig
+*~
