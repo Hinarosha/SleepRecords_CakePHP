@@ -50,9 +50,8 @@ use Cake\Utility\Security;
 require CAKE . 'functions.php';
 
 /*
- * See https://github.com/josegonzalez/php-dotenv for API details.
+ * Load environment variables from .env file if it exists.
  *
- * Uncomment block of code below if you want to use `.env` file during development.
  * You should copy `config/.env.example` to `config/.env` and set/modify the
  * variables as required.
  *
@@ -60,16 +59,12 @@ require CAKE . 'functions.php';
  * variables like they would be present in production.
  *
  * If you use .env files, be careful to not commit them to source control to avoid
- * security risks. See https://github.com/josegonzalez/php-dotenv#general-security-information
- * for more information for recommended practices.
-*/
- if (!env('APP_NAME') && file_exists(CONFIG . '.env')) {
-     $dotenv = new \josegonzalez\Dotenv\Loader([CONFIG . '.env']);
-     $dotenv->parse()
-         ->putenv()
-         ->toEnv()
-         ->toServer();
- }
+ * security risks.
+ */
+if (!env('APP_NAME') && file_exists(CONFIG . '.env')) {
+    $dotenv = \Dotenv\Dotenv::createImmutable(CONFIG);
+    $dotenv->load();
+}
 
 /*
  * Read configuration file and inject configuration into various
